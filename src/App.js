@@ -2,6 +2,10 @@
 import Navbar from './Components/Navbar';
 import Head from './Components/Head';
 import Categorie from './Components/Categorie';
+import Footer from './Components/Footer';
+
+
+
 
 
 
@@ -13,6 +17,7 @@ function App() {
       <Navbar/>
       <Head/>
       <Categorie/> 
+      <Footer/>
     
     </div>
   );
