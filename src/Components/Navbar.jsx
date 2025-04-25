@@ -6,31 +6,31 @@ import { CgProfile } from "react-icons/cg";
 
 const Menu = [
     {
-      id: 1,
-      name: "Accueil",
-      link: "/",
+    id: 1,
+    name: "Accueil",
+    link: "/",
     },
     {
-      id: 2,
-      name: "Produits",
-      link: "/produits",
+    id: 2,
+    name: "Produits",
+    link: "/produits",
     },
     {
-      id: 3,
-      name: "Coopératives",
-      link: "/cooperatives",
+    id: 3,
+    name: "Coopératives",
+    link: "/cooperatives",
     },
     {
-      id: 4,
-      name: "À propos",
-      link: "/apropos",
+    id: 4,
+    name: "À propos",
+    link: "/apropos",
     },
     
-  ];
-  
+];
 
 
- const Navbar =() =>{
+
+const Navbar =() =>{
     
     return (
         <div className="shadow-md bg-white  dark:text-black-900 duration-200 relative z-40 ">
@@ -63,20 +63,20 @@ const Menu = [
                      {/* Icons: Heart and Profile */}
                     <div className="  flex justify-end items-center gap-4 ml-auto">
                        {/* Heart Button */}
-                       <button 
+                    <button 
                         onClick={() => alert("Favorites not available yet")}
                         className="bg-gradient-to-r bg-[#B99470] from-[#B99470] to-[#B5C18E]
                     transition-all duration-200
                     text-white py-1 px-4 rounded-full flex 
                     items-center gap-3 group "
                         >
-                             <span
+                            <span
                         className="group-hover:block
                         hidden transition-all duration-200"> 
-                            Order
+                    
                         </span>
-                      <FaHeart className="text-white text-lg drop-shadow-sm" />
-                      </button>
+                    <FaHeart className="text-white text-lg drop-shadow-sm" />
+                    </button>
 
                       {/* Profile Button */}
                         <button 
@@ -86,10 +86,10 @@ const Menu = [
                     text-white py-1 px-4 rounded-full flex 
                     items-center gap-3 group "
                         >
-                             <span
+                            <span
                         className="group-hover:block
                         hidden transition-all duration-200"> 
-                            Order
+                            
                         </span>
                     <CgProfile className="text-white text-lg drop-shadow-sm" />
                     </button>
@@ -106,7 +106,7 @@ const Menu = [
                         <span
                         className="group-hover:block
                         hidden transition-all duration-200"> 
-                            Order
+                            
                         </span>
                         <FaCartShopping
                         className="text-white drop-shadow-sm cursor-pointer" 
@@ -133,10 +133,10 @@ const Menu = [
                             </li>
                         ))
                     }
-                 
+            
             </ul>
             </div>
         </div>
     );
- }
- export default Navbar
+}
+export default Navbar
