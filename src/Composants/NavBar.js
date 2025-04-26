@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
 
 const Navbar = () => {
-
-
- 
-
   return (
-    <nav className="bg-white  dark:bg-gray-800 antialiased">
+    <nav className="bg-white  antialiased">
       <div className="max-w-screen-xl">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-8">
             <div className="shrink-0">
               <a href="#" title="">
-              <img className=" w-[150px] h-auto object-contain mx-5 dark:hidden" src="/Souq bladi (2).svg" alt="Logo" />
+              <img className=" w-[150px] h-auto object-contain mx-5 dark:hidden" src="Souq bladi.svg" alt="Logo" />
 
               </a>
             </div>

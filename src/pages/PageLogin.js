@@ -4,10 +4,12 @@ import Navbar from '../Composants/NavBar';
 import BackgroundImages from '../Composants/BackgroundImages';
 import Footer from '../Composants/Footer';
 import {Link} from 'react-router-dom' ;
-
-const Login = () => {
-
-  return (
+const Login = ({ onLogin }) => {
+    const handleLogin = () => {
+        // vérifie les informations, etc.
+        onLogin(); // 🔥 appeler cette fonction pour changer isLoggedIn à true
+      };
+return (
     <div>
     <Navbar />
         <BackgroundImages >
@@ -46,6 +48,7 @@ const Login = () => {
                         className=" shadow-lg mt-6 p-2 text-black rounded-lg w-full hover:scale-105 hover:from-purple-500 hover:to-blue-500 transition duration-300 ease-in-out"
                         type="submit"
                         style={{ backgroundColor: '#DEAC80' }}
+                        onClick={handleLogin}
                     >
                         Créer un compte
                     </button>
