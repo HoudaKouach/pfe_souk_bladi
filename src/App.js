@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Login from './pages/PageLogin';
-import Navbar from './Components/Navbar';
-import Head from './Components/Head';
+import Navbar from './Composants/NavBar';
+// import Navbar from './Components/NavBar';
+import BannerSection from './Composants/Head';
 import Categorie from './Components/Categorie';
 import Footer from './Components/Footer';
 import Signup from './pages/PageSign';
@@ -23,7 +24,7 @@ function App() {
         ) : (
           <>
             <Navbar />
-            <Head />
+            <BannerSection />
             <Categorie />
             <CooperativesSection />
             <BestSellers />

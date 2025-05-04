@@ -57,12 +57,12 @@ const CooperativesSection = () => {
                   key={`${index}-${i}`}
                   className={`transition-all duration-500 ease-in-out transform ${
                     isActive ? 'scale-100 opacity-100 z-10' : 'scale-90 opacity-50 z-0'
-                  } w-72 bg-gray-50 rounded-lg shadow-md overflow-hidden`}
+                  } w-80 bg-gray-50 rounded-lg shadow-md overflow-hidden`}
                 >
                   <img
                     src={cooperatives[index].image}
                     alt={cooperatives[index].title}
-                    className="w-full h-48 object-cover"
+                    className="w-full h-56 object-cover"
                   />
                   <div className="p-6">
                     <h3 className="text-xl font-semibold mb-4 text-center">
