@@ -4,8 +4,26 @@
 
 .no-scrollbar::-webkit-scrollbar {
     display: none;
-  }
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Style des bullets inactives */
+.swiper-pagination-bullet {
+  background-color: #D1D5DB; /* Gris clair */
+  opacity: 1;
+  width: 10px;
+  height: 10px;
+  margin: 0 6px;
+  border-radius: 50%;
+  transition: background-color 0.3s;
+}
+
+/* Bullet active */
+.swiper-pagination-bullet-active {
+  background-color: #B5C18E; /* Ta couleur personnalisée */
+  width: 12px;
+  height: 12px;
+}

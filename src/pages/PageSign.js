@@ -1,8 +1,8 @@
 import React from 'react';
 import '../index.css';
-import Navbar from '../Composants/NavBar';
-import BackgroundImages from '../Composants/BackgroundImages';
-import Footer from '../Composants/Footer';
+import Navbar from '../Components/NavBar';
+import BackgroundImages from '../Components/BackgroundImages';
+import Footer from '../Components/Footer';
 import { Link } from 'react-router-dom';
 
 const Signup = () => {
