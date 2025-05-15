@@ -17,6 +17,8 @@ import PlusRecents from './Components/plus_recents';
 import PlusVendus from './Components/plus_vendus';
 import AboutPage from './pages/PageVendeur';
 import Favoris from './pages/pageFavoris';
+import AllVendeursPage from './pages/pageTousVendeurs';
+
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -32,6 +34,7 @@ function App() {
                 <Route path="/" element={<Login onLogin={() => setIsLoggedIn(true)} />} />
                 <Route path="/login" element={<Login onLogin={() => setIsLoggedIn(true)} />} />
                 <Route path="/signup" element={<Signup />} />
+                <Route path="/pagecooperatives" element={<AllVendeursPage />} />
               </>
             ) : (
               <>
@@ -56,7 +59,7 @@ function App() {
                 <Route path="/PlusVendus/product/:id" element={<ProductDetails />} />
                 <Route path="/favoris" element={<Favoris />} />
                 <Route path="/favoris/product/:id" element={<ProductDetails />} />
-
+                <Route path="/pagecooperatives" element={<AllVendeursPage />} />
               </>
               
             ) }

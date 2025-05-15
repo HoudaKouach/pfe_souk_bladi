@@ -9,7 +9,7 @@ const CooperativesSection = () => {
 
     const fetchCooperatives = async () => {
         try {
-            const response = await axios.get('http://localhost/back-end_PFE/get_vendeurs.php');
+            const response = await axios.get('http://localhost/back-end_PFE/get_all_vendeurs.php');
             setCooperatives(response.data);
         } catch (error) {
             console.error('Erreur lors de la récupération des coopératives:', error);
