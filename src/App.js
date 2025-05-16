@@ -143,10 +143,7 @@ function App() {
                   }
                 />
                 
-                {/* رابط تصنيف إلى صفحة المنتجات */}
                 <Route path="/categorie/:id" element={<ProductPage />} />
-
-                {/* باقي الصفحات */}
                 <Route path="/Cooperatives" element={<CooperativesSection />} />
                 <Route path="/Cooperatives/Cooperative/:id" element={<AboutPage />} />
                 <Route path="/MieuxNotes" element={<MieuxNotes />} />
