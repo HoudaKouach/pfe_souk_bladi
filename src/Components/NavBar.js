@@ -36,7 +36,7 @@ const Navbar = () => {
               <a href="#" title="Home">
                 <img
                   className="w-[200px] h-auto object-contain dark:hidden"
-                  src="Souq bladi.svg"
+                  src="/Souq bladi.svg"
                   alt="Logo"
                 />
               </a>
