@@ -46,3 +46,53 @@ export const Pagination = ({
 };
 
 export default Pagination; 
+
+
+
+
+// import React, { useState } from 'react';
+// import ProductCard from './ProductCard'; 
+
+// function ProductList({ products }) {
+//   const itemsPerPage = 6;
+//   const [currentPage, setCurrentPage] = useState(1);
+
+//   const totalPages = Math.ceil(products.length / itemsPerPage);
+//   const startIndex = (currentPage - 1) * itemsPerPage;
+//   const currentProducts = products.slice(startIndex, startIndex + itemsPerPage);
+
+//   const handlePageChange = (pageNumber) => {
+//     setCurrentPage(pageNumber);
+//     window.scrollTo({ top: 0, behavior: 'smooth' }); 
+//   };
+
+//   return (
+//     <div className="container mx-auto p-4">
+//       {/* Grid ديال المنتجات */}
+//       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+//         {currentProducts.map((product) => (
+//           <ProductCard key={product.id_produit} product={product} />
+//         ))}
+//       </div>
+
+//       {/* Pagination */}
+//       <div className="flex justify-center mt-6 space-x-2">
+//         {[...Array(totalPages)].map((_, index) => (
+//           <button
+//             key={index}
+//             className={`px-3 py-1 rounded-md border text-sm font-medium transition ${
+//               currentPage === index + 1
+//                 ? 'bg-[#DEAC80] text-white'
+//                 : 'bg-white text-gray-700 border-gray-300 hover:bg-[#f5deb3]'
+//             }`}
+//             onClick={() => handlePageChange(index + 1)}
+//           >
+//             {index + 1}
+//           </button>
+//         ))}
+//       </div>
+//     </div>
+//   );
+// }
+
+// export default ProductList;

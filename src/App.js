@@ -106,7 +106,7 @@ import Favoris from './pages/pageFavoris';
 import AllVendeursPage from './pages/pageTousVendeurs';
 
 
-// ✅ استخدام المسار الصحيح للمجلد Composants
+
 import ProductPage from './Composants/ProductPage';
 
 function App() {
@@ -158,6 +158,7 @@ function App() {
               </>
             )}
           </Routes>
+          
         </div>
       </Router>
     </FavoritesProvider>
