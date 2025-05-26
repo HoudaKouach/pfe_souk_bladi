@@ -1,12 +1,18 @@
+
+
 import React, { useState, useEffect, useContext } from 'react';
 import { FiShoppingCart } from 'react-icons/fi';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { FavoritesContext } from './FavoritesContext';
+import { CartContext } from '../Panier/CartContext' // 👈 Importer le contexte du panier
+
+
 
 const PlusVendus = () => {
   const [products, setProducts] = useState([]);
   const { favorites, toggleFavorite } = useContext(FavoritesContext);
+  const { ajouterAuPanier } = useContext(CartContext); // 👈 Utiliser la fonction du contexte
 
   // Charger les favoris depuis les cookies
   useEffect(() => {
@@ -21,11 +27,16 @@ const PlusVendus = () => {
     toggleFavorite(productId);
   };
 
+
+
+
   return (
-    <div className="py-12 bg-white">
-      <div className="container mx-auto px-4 max-w-7xl">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-center text-black mb-10 hover:text-[#B5C18E] transition-colors duration-300 cursor-pointer">
+  <div className="relative w-full pb-[64px] pt-16 px-16">
+    {/* Background avec opacité */}
+    <div className="absolute inset-0 bg-[#F7DCB9] opacity-5 z-0"></div>
+        <div className="container mx-auto px-4 max-w-7xl">
+        <div className="text-center">
+          <h2 className="text-3xl font-bold text-center text-black mb-[10px] hover:text-[#B5C18E] transition-colors duration-300 cursor-pointer">
             Plus vendus
           </h2>
         </div>
@@ -37,7 +48,7 @@ const PlusVendus = () => {
                 <div className="min-h-[240px] flex flex-col justify-between bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
                   <div className="h-40 bg-gray-100 flex items-center justify-center overflow-hidden">
                     <img
-                      src={`http://localhost/back-end_PFE/${product.image_principale}`}
+                      src={`http://localhost/back-end_PFE/uploads/${product.image_principale}`}
                       alt={product.nom}
                       className="w-full h-full object-cover"
                     />
@@ -60,8 +71,13 @@ const PlusVendus = () => {
                     </div>
 
                     <div className="w-full mt-4">
-                      <button className="w-full py-1 text-sm rounded-md transition-all duration-300 flex items-center justify-center space-x-1 bg-[#B5C18E] text-white hover:bg-[#9AA86E]">
-                        <span>Ajouter</span>
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault(); // éviter la redirection du lien parent
+                          ajouterAuPanier(product); // 👈 Appel à la fonction du contexte
+                        }}
+                        className="w-full py-1 text-sm rounded-md transition-all duration-300 flex items-center justify-center space-x-1 bg-[#B5C18E] text-white hover:bg-[#9AA86E]"
+                      >                        <span>Ajouter</span>
                         <FiShoppingCart className="transition-transform duration-300" />
                       </button>
                     </div>

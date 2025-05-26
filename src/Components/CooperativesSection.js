@@ -36,15 +36,15 @@ const CooperativesSection = () => {
     };
 
     return (
-        <div className="py-12 bg-[#DEAC80] relative overflow-hidden">
+        <div className="py-[64px] bg-white relative overflow-hidden">
             <div className="container mx-auto px-4">
-                <h2 className="text-3xl font-bold text-center text-white mb-10 hover:text-black transition-colors duration-300 cursor-pointer">
+                <h2 className="text-3xl font-bold text-center text-black mb-[10px] hover:text-black transition-colors duration-300 cursor-pointer">
                     Trésors de Nos Coopératives
                 </h2>
 
                 <div className="relative h-96 flex items-center justify-center">
-                    <button onClick={prevSlide} className="absolute left-0 z-10 bg-white p-3 rounded-full shadow-md hover:bg-[#B99470] focus:outline-none" style={{ marginLeft: '-1.5rem' }}>
-                        <FaChevronLeft className="text-[#DEAC80] text-xl" />
+                    <button onClick={prevSlide} className="absolute left-0 z-10 bg-[#DEAC80] p-3 rounded-full shadow-md hover:bg-[#B99470] focus:outline-none" style={{ marginLeft: '-1.5rem' }}>
+                        <FaChevronLeft className="text-white text-xl" />
                     </button>
 
                     <div className="flex gap-6 overflow-hidden w-full justify-center items-center relative">
@@ -56,7 +56,7 @@ const CooperativesSection = () => {
 
                             return (
                                 <Link to={`/Cooperatives/Cooperative/${coop.id_vendeur}`} key={`${index}-${i}`}>
-                                    <div className={`transition-all duration-500 ease-in-out transform ${isActive ? 'scale-100 opacity-100 z-10' : 'scale-90 opacity-75 z-0'} w-80 bg-white rounded-lg shadow-md overflow-hidden`}>
+                                        <div className={`transition-all duration-500 w-100 ease-in-out transform ${isActive ? 'scale-100 opacity-100 z-10' : 'scale-90 opacity-75 z-0'}  bg-[#DEAC80] rounded-lg shadow-md overflow-hidden`}>
                                         <img
                                             src={`http://localhost/back-end_PFE/uploads/vendeurs/${coop.logo_cooperative}`}
                                             alt={coop.nom}
@@ -72,8 +72,8 @@ const CooperativesSection = () => {
                         })}
                     </div>
 
-                    <button onClick={nextSlide} className="absolute right-0 z-10 bg-white p-3 rounded-full shadow-md hover:bg-[#B99470] focus:outline-none" style={{ marginRight: '-1.5rem' }}>
-                        <FaChevronRight className="text-[#DEAC80] text-xl" />
+                    <button onClick={nextSlide} className="absolute right-0 z-10 bg-[#DEAC80] p-3 rounded-full shadow-md hover:bg-[#B99470] focus:outline-none" style={{ marginRight: '-1.5rem' }}>
+                        <FaChevronRight className="text-white text-xl" />
                     </button>
                 </div>
 
@@ -82,7 +82,7 @@ const CooperativesSection = () => {
                         <button
                             key={index}
                             onClick={() => setCurrentIndex(index)}
-                            className={`w-3 h-3 rounded-full ${currentIndex === index ? 'bg-black' : 'bg-white'}`}
+                            className={`w-3 h-3 rounded-full ${currentIndex === index ? 'bg-black' : 'bg-[#DEAC80]'}`}
                             aria-label={`Go to slide ${index + 1}`}
                         />
                     ))}

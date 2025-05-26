@@ -33,11 +33,13 @@ const Engagement = ({ imageSrc, text }) => (
 
 const Footer = () => {
   const [categories, setCategories] = useState([]);
-
+  const MAX_CATEGORIES = 15; // nombre max de catégories à afficher
   useEffect(() => {
     fetch('http://localhost/back-end_PFE/getCategories.php')
       .then(res => res.json())
-      .then(data => setCategories(data))
+      .then(data => {
+        setCategories(data.slice(0, MAX_CATEGORIES));
+      })
       .catch(err => console.error('Erreur chargement catégories :', err));
   }, []);
 
@@ -80,14 +82,14 @@ const Footer = () => {
           <h3 className="text-xl font-bold">Catégories</h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 gap-2">
             {categories.map(cat => (
-              <Link
-                key={cat.id}
+              <Link 
                 to={`/categorie/${cat.id}`}
-                className="text-sm hover:text-green-700 transition duration-200"
+                key={cat.id}  // Clé unique pour React
               >
                 {cat.name}
               </Link>
             ))}
+
           </div>
         </div>
 

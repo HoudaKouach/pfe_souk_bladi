@@ -27,9 +27,9 @@ const Favoris = () => {
 
   return (
     <>
-      <div className="relative py-10 pb-4 bg-white min-h-screen">
+      <div className="relative py-10  pb-[100px] bg-white overflow-hidden">
         {/* Image de fond */}
-        <div
+        {/* <div
           className="absolute inset-0"
           style={{
             backgroundImage: "url('/docoratif_amazigh.png')",
@@ -38,7 +38,7 @@ const Favoris = () => {
             opacity: 0.5,
             zIndex: 0,
           }}
-        ></div> 
+        ></div>  */}
         <div className="container mx-auto px-4 max-w-7xl">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-center text-black mb-10 hover:text-[#B5C18E] transition-colors duration-300 cursor-pointer">
@@ -54,7 +54,7 @@ const Favoris = () => {
                     <div className="min-h-[240px] flex flex-col justify-between bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
                       <div className="h-40 bg-gray-100 flex items-center justify-center overflow-hidden">
                         <img
-                          src={`http://localhost/back-end_PFE/${product.image_principale}`}
+                          src={`http://localhost/back-end_PFE/uploads/${product.image_principale}`}
                           alt={product.nom}
                           className="w-full h-full object-cover"
                         />

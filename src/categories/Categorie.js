@@ -70,15 +70,18 @@
 
 // export default Categorie;
 
+
+
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom"; // 👈 استيراد Link
 import CategoryCard from './CategoryCard';
 
 const Categorie = () => {
   const [categories, setCategories] = useState([]);
+  const [visibleItems, setVisibleItems] = useState(8);
 
   useEffect(() => {
-    fetch('http://localhost/back-end_PFE/getCategoriesPlusPopulaires.php')
+    fetch('http://localhost/back-end_PFE/getCategories.php')
       .then(response => response.json())
       .then(data => {
         setCategories(data);
@@ -86,21 +89,23 @@ const Categorie = () => {
       .catch(error => console.error("Erreur de chargement des catégories :", error));
   }, []);
 
+  const handleShowMore = () => {
+    setVisibleItems(prev => prev + 8);
+  };
+
+  const handleShowLess = () => {
+    setVisibleItems(8);
+  };
 
   return (
-<div className="relative w-full pb-[64px] pt-16 px-16">
-  {/* Background avec opacité */}
-  <div className="absolute inset-0 bg-[#F7DCB9] opacity-5 z-0"></div>
-
-  {/* Contenu avec opacité pleine */}
-    <div className="relative z-10">
-      <h2 className="text-3xl font-bold text-center text-black mb-[10px] hover:text-[#B5C18E] transition-colors duration-300 cursor-pointer">
-        Découvre nos catégories les plus populaires
+    <div className="bg-[#DEAC80] px-16 w-full pb-16 pt-16">
+      <h2 className="text-3xl font-bold text-center text-black mb-10 hover:text-[#B5C18E] transition-colors duration-300 cursor-pointer">
+        Découvre nos catégories
       </h2>
 
       {/* Grille responsive */}
       <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-8 xl:grid-cols-8 gap-8">
-        {categories.map((category) => (
+        {categories.slice(0, visibleItems).map((category) => (
           <Link key={category.id} to={`/categorie/${category.id}`}>
             <CategoryCard
               name={category.name}
@@ -109,8 +114,30 @@ const Categorie = () => {
           </Link>
         ))}
       </div>
+
+      {/* Boutons */}
+      {visibleItems < categories.length && (
+        <div className="flex justify-center mt-6">
+          <button
+            onClick={handleShowMore}
+            className="px-6 py-2 text-[#DEAC80] bg-white rounded-lg shadow hover:bg-[#B99470] transition-colors"
+          >
+            Voir plus
+          </button>
+        </div>
+      )}
+
+      {visibleItems > 8 && (
+        <div className="flex justify-center mt-6">
+          <button
+            onClick={handleShowLess}
+            className="px-6 py-2 text-[#DEAC80] bg-white rounded-lg shadow hover:bg-[#B99470] transition-colors"
+          >
+            Voir moins
+          </button>
+        </div>
+      )}
     </div>
-  </div>
   );
 };
 
