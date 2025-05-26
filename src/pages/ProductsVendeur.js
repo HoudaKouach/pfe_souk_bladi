@@ -52,7 +52,7 @@ const ProduitsVendeur = ({ vendeurId }) => {
                 <div className="min-h-[240px] flex flex-col justify-between bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg">
                   <div className="h-40 bg-gray-100 flex items-center justify-center overflow-hidden">
                     <img
-                      src={`http://localhost/back-end_PFE/${product.image_principale}`}
+                      src={`http://localhost/back-end_PFE/uploads/${product.image_principale}`}
                       alt={product.nom}
                       className="w-full h-full object-cover"
                     />

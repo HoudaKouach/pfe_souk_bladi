@@ -1,29 +1,66 @@
-import React, { useState } from 'react';
-// import { FiShoppingCart } from 'react-icons/fi';
+// import React, { useState } from 'react';
+// // import { FiShoppingCart } from 'react-icons/fi';
 // import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import ProductGrid from './ProductGrid';
 import FilterSidebar from './FilterSidebar';
 import Breadcrumb from './Breadcrumb';
 import Pagination from './Pagination';
 import Footer from '../Components/Footer';
-import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
+
+// function ProductPage() {
+//   const [currentPage, setCurrentPage] = useState(1);
+//   const [sortBy, setSortBy] = useState('');
+//     const location = useLocation();
+
+  // // Convertir le chemin URL en segments pour le breadcrumb
+  // const pathSegments = location.pathname.split('/').filter(Boolean);
+  // // Générer dynamiquement les chemins
+  // const breadcrumbPaths = [
+  //   { name: 'Accueil', path: '/' },
+  //   ...pathSegments.map((segment, index) => {
+  //     const path = '/' + pathSegments.slice(0, index + 1).join('/');
+  //     const name = segment.charAt(0).toUpperCase() + segment.slice(1); // Capitaliser
+  //     return { name, path };
+  //   }),
+  // ];
+  import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom'; // Pour récupérer l’id dans l’URL
 
 function ProductPage() {
+  const { id } = useParams(); // récupère '15' dans /product/15
+  const [productName, setProductName] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [sortBy, setSortBy] = useState('');
-    const location = useLocation();
-
-  // Convertir le chemin URL en segments pour le breadcrumb
-  const pathSegments = location.pathname.split('/').filter(Boolean);
-  // Générer dynamiquement les chemins
-  const breadcrumbPaths = [
+  const [breadcrumbPaths, setBreadcrumbPaths] = useState([
     { name: 'Accueil', path: '/' },
-    ...pathSegments.map((segment, index) => {
-      const path = '/' + pathSegments.slice(0, index + 1).join('/');
-      const name = segment.charAt(0).toUpperCase() + segment.slice(1); // Capitaliser
-      return { name, path };
-    }),
-  ];
+    { name: 'Produits', path: '/product' },
+  ]);
+
+  useEffect(() => {
+    if (!id) return;
+
+    // Appeler ton API pour récupérer le nom du produit par son ID
+    fetch(`http://localhost/back-end_PFE/get_categorie.php?id_categorie=${id}`)
+     .then(res => res.json())
+      .then(data => {
+        if (data.nom) {
+          setProductName(data.nom);
+          setBreadcrumbPaths([
+            { name: 'Accueil', path: '/' },
+            { name: data.nom, path: `/Categories/${id}` }, // ici on affiche le nom, mais on garde l’id dans le path
+          ]);
+        }
+      })
+      .catch(() => {
+        // En cas d’erreur, afficher l’id ou un fallback
+        setBreadcrumbPaths([
+          { name: 'Accueil', path: '/' },
+          { name: 'Produits', path: '/product' },
+          { name: `Produit #${id}`, path: `/product/${id}` },
+        ]);
+      });
+  }, [id]);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
