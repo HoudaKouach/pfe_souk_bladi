@@ -1,13 +1,14 @@
-import React, { useContext } from 'react';
+import React, { useContext ,useState } from 'react';
 import { FiShoppingCart } from 'react-icons/fi';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
-import { CartContext } from '../Panier/CartContext';
 import { FavoritesContext } from '../Components/FavoritesContext';
+import AddToCartModal from '../Panier/AddToCartModal'; // Utilise bien ce nom
+
 
 const ProductCard = ({ product, categoryId }) => {
   const { favorites, toggleFavorite } = useContext(FavoritesContext);
-  const { ajouterAuPanier } = useContext(CartContext);
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   const handleFavoriteToggle = (e) => {
     e.preventDefault(); // empêche la redirection
@@ -53,17 +54,24 @@ const ProductCard = ({ product, categoryId }) => {
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  ajouterAuPanier(product);
+                  setSelectedProduct(product);
                 }}
-                className="w-full py-1 text-sm rounded-md transition-all duration-300 flex items-center justify-center space-x-1 bg-[#B5C18E] text-white hover:bg-[#9AA86E]"
+                className="w-full py-1 text-sm rounded-md flex items-center justify-center space-x-1 bg-[#B5C18E] text-white hover:bg-[#9AA86E] transition-all duration-300"
               >
                 <span>Ajouter</span>
-                <FiShoppingCart className="transition-transform duration-300" />
+                <FiShoppingCart />
               </button>
             </div>
           </div>
         </div>
       </Link>
+      
+        {selectedProduct && (
+          <AddToCartModal
+            produit={selectedProduct}
+            onClose={() => setSelectedProduct(null)}
+          />
+        )}
     </div>
   );
 };

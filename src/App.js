@@ -106,10 +106,11 @@ import Categorie from './Components/Categorie';
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const idClient = 1; // À remplacer par le vrai ID utilisateur
 
   return (
     <FavoritesProvider>
-      <CartProvider>
+      <CartProvider idClient={idClient}>
         <BrowserRouter>
           <div className="font-sans">
             <Navbar isLoggedIn={isLoggedIn} onLogin={() => setIsLoggedIn(true)} />

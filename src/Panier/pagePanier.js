@@ -516,6 +516,69 @@
 
 
 
+// import React, { useContext } from 'react';
+// import CartItem from './CartItem';
+// import CartSummary from './CartSummary';
+// import { CartContext } from './CartContext';
+// import Footer from '../Components/Footer';
+
+// const Panier = () => {
+//   const { cartItems, modifierQuantite, supprimerProduit } = useContext(CartContext);
+
+//   const handleRemove = (id) => {
+//     supprimerProduit(id); // suffit, le contexte et cookie se mettent à jour
+//   };
+
+//   const totalItems = cartItems.reduce((acc, product) => acc + product.quantite, 0);
+//   const totalPrice = cartItems.reduce((acc, product) => acc + product.prix * product.quantite, 0);
+
+//   return (
+//     <>
+//       {/* Ligne explicative en haut de page */}
+//       <hr className="border-[#DEAC80] border-2" />
+
+
+//       <main className="px-4 md:px-8 lg:px-16 py-6 max-w-[1200px] mx-auto">
+//         <section className="mb-10">
+//           <h1 className="font-bold text-xl mb-4">Mon panier</h1>
+//           <div className="flex flex-col md:flex-row md:space-x-6">
+//             <div className="flex-1 bg-white p-4 rounded-md shadow-sm">
+//               <div className="flex justify-between items-center border-b border-black border-opacity-70 pb-1 mb-3 font-semibold text-sm">
+//                 <span className="bg-white px-1">Liste des produits ajoutés au panier</span>
+//                 <span>{totalItems} produit{totalItems > 1 ? 's' : ''}</span>
+//               </div>
+//               {cartItems.length > 0 ? (
+//                 cartItems.map(item => (
+//                   <CartItem
+//                     key={item.id_produit}
+//                     product={{
+//                       id: item.id_produit,
+//                       name: item.nom,
+//                       seller: item.vendeur,
+//                       price: item.prix,
+//                       quantity: item.quantite,
+//                       img: item.image_principale,
+//                       alt: `Image de ${item.nom}`
+//                     }}
+//                     onRemove={() => handleRemove(item.id_produit)}
+//                     onQuantityChange={(newQuantity) => modifierQuantite(item.id_produit, newQuantity)}
+//                   />
+//                 ))
+//               ) : (
+//                 <p className="text-gray-600">Aucun produit dans le panier.</p>
+//               )}
+//             </div>
+//             <CartSummary totalItems={totalItems} totalPrice={totalPrice} />
+//           </div>
+//         </section>
+//       </main>
+//       <Footer />
+//     </>
+//   );
+// };
+// export default Panier;
+
+
 import React, { useContext } from 'react';
 import CartItem from './CartItem';
 import CartSummary from './CartSummary';
@@ -523,20 +586,31 @@ import { CartContext } from './CartContext';
 import Footer from '../Components/Footer';
 
 const Panier = () => {
-  const { cartItems, modifierQuantite, supprimerProduit } = useContext(CartContext);
+  const {
+    cartItems,
+    modifierQuantite,
+    supprimerProduit,
+    modifierAttribut
+  } = useContext(CartContext);
 
-  const handleRemove = (id) => {
-    supprimerProduit(id); // suffit, le contexte et cookie se mettent à jour
+    cartItems.forEach(item => {
+      console.log(cartItems);
+    });
+  const handleRemove = (id_produit, couleur, taille) => {
+    supprimerProduit(id_produit, couleur, taille);
   };
 
-  const totalItems = cartItems.reduce((acc, product) => acc + product.quantite, 0);
-  const totalPrice = cartItems.reduce((acc, product) => acc + product.prix * product.quantite, 0);
+  
+  const handleAttributeChange = (id_produit, attribut, nouvelleValeur, couleur, taille) => {
+    modifierAttribut(id_produit, attribut, nouvelleValeur, couleur, taille);
+  };
+  const totalQuantite = cartItems.reduce((total, item) => total + item.quantity, 0);
+  const totalItems = cartItems.reduce((acc, product) => acc + product.quantity, 0);
+  const totalPrice = cartItems.reduce((acc, product) => acc + parseFloat(product.prix) * product.quantity, 0);
 
   return (
     <>
-      {/* Ligne explicative en haut de page */}
       <hr className="border-[#DEAC80] border-2" />
-
 
       <main className="px-4 md:px-8 lg:px-16 py-6 max-w-[1200px] mx-auto">
         <section className="mb-10">
@@ -549,26 +623,36 @@ const Panier = () => {
               </div>
               {cartItems.length > 0 ? (
                 cartItems.map(item => (
-                  <CartItem
-                    key={item.id_produit}
-                    product={{
-                      id: item.id_produit,
-                      name: item.nom,
-                      seller: item.vendeur,
-                      price: item.prix,
-                      quantity: item.quantite,
-                      img: item.image_principale,
-                      alt: `Image de ${item.nom}`
-                    }}
-                    onRemove={() => handleRemove(item.id_produit)}
-                    onQuantityChange={(newQuantity) => modifierQuantite(item.id_produit, newQuantity)}
-                  />
+              <CartItem
+                key={`${item.id_produit}-${item.couleur}-${item.taille}`}
+                product={{
+                  id: item.id_produit,
+                  name: item.nom.trim(),
+                  seller: item.vendeur || '',
+                  price: parseFloat(item.prix),
+                  quantity: item.quantity,
+                  img: item.image_principale,
+                  alt: `Image de ${item.nom.trim()}`,
+                  couleur: item.couleur,
+                  taille: item.taille,
+                  volume: item.volume,
+                }}
+                couleursDisponibles={item.couleurs || []}   // au lieu de couleursDisponibles
+                taillesDisponibles={item.tailles || []}     // si tu as aussi tailles dans ta réponse
+                volumesDisponibles={item.volumes || []} 
+                onRemove={() => handleRemove(item.id_produit, item.couleur, item.taille)}
+                onQuantityChange={(newQuantity) => modifierQuantite(item.id_produit, item.couleur, item.taille, newQuantity)}
+                onAttributeChange={handleAttributeChange}
+              />
+
+
+
                 ))
               ) : (
                 <p className="text-gray-600">Aucun produit dans le panier.</p>
               )}
             </div>
-            <CartSummary totalItems={totalItems} totalPrice={totalPrice} />
+            <CartSummary totalItems={totalItems} totalQuantite={totalQuantite} totalPrice={totalPrice} />
           </div>
         </section>
       </main>

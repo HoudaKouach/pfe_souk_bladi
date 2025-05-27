@@ -1,18 +1,16 @@
-
-
 import React, { useState, useEffect, useContext } from 'react';
 import { FiShoppingCart } from 'react-icons/fi';
 import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { Link } from 'react-router-dom';
 import { FavoritesContext } from './FavoritesContext';
-import { CartContext } from '../Panier/CartContext' // 👈 Importer le contexte du panier
+import AddToCartModal from '../Panier/AddToCartModal'; // Utilise bien ce nom
 
 
 
 const PlusVendus = () => {
   const [products, setProducts] = useState([]);
   const { favorites, toggleFavorite } = useContext(FavoritesContext);
-  const { ajouterAuPanier } = useContext(CartContext); // 👈 Utiliser la fonction du contexte
+  const [selectedProduct, setSelectedProduct] = useState(null);
 
   // Charger les favoris depuis les cookies
   useEffect(() => {
@@ -73,12 +71,13 @@ const PlusVendus = () => {
                     <div className="w-full mt-4">
                       <button
                         onClick={(e) => {
-                          e.preventDefault(); // éviter la redirection du lien parent
-                          ajouterAuPanier(product); // 👈 Appel à la fonction du contexte
+                          e.preventDefault();
+                          setSelectedProduct(product);
                         }}
-                        className="w-full py-1 text-sm rounded-md transition-all duration-300 flex items-center justify-center space-x-1 bg-[#B5C18E] text-white hover:bg-[#9AA86E]"
-                      >                        <span>Ajouter</span>
-                        <FiShoppingCart className="transition-transform duration-300" />
+                        className="w-full py-1 text-sm rounded-md flex items-center justify-center space-x-1 bg-[#B5C18E] text-white hover:bg-[#9AA86E] transition-all duration-300"
+                      >
+                        <span>Ajouter</span>
+                        <FiShoppingCart />
                       </button>
                     </div>
                   </div>
@@ -87,6 +86,13 @@ const PlusVendus = () => {
             </div>
           ))}
         </div>
+        
+        {selectedProduct && (
+          <AddToCartModal
+            produit={selectedProduct}
+            onClose={() => setSelectedProduct(null)}
+          />
+        )}
       </div>
     </div>
   );
