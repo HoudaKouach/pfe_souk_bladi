@@ -38,7 +38,7 @@ const AboutPage = () => {
 
   return (
     <>
-      <div className="relative py-10 pb-4 bg-white min-h-screen">
+      <div className="relative py-[32px]  bg-white ">
         {/* Image de fond décorative */}
         <div
           className="absolute inset-0"
@@ -57,7 +57,7 @@ const AboutPage = () => {
 
           {cooperatives.length > 0 ? (
             cooperatives.map((coop, index) => (
-              <div key={index} className="w-full sm:w-2/3 mx-auto relative mb-20">
+              <div key={index} className="w-full sm:w-2/3 mx-auto relative ">
                 {/* Image centrée au-dessus de la carte */}
                 <div className="absolute -top-16 left-1/2 transform -translate-x-1/2 z-20">
                   <img

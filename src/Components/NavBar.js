@@ -84,7 +84,7 @@ const Navbar = () => {
           // className="flex items-center" 
           className="flex-shrink-0 flex items-center">
             <img
-              src="Souq bladi.svg"
+              src="/Souq bladi.svg"
               alt="Logo Souq Bladi"
               className="w-[220px] h-auto object-contain dark:hidden"
               draggable={false}

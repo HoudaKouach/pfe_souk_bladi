@@ -88,13 +88,13 @@ const Categorie = () => {
 
 
   return (
-<div className="relative w-full pb-[64px] pt-16 px-16">
+<div className="relative w-full py-[64px]  px-16">
   {/* Background avec opacité */}
   <div className="absolute inset-0 bg-[#F7DCB9] opacity-5 z-0"></div>
 
   {/* Contenu avec opacité pleine */}
     <div className="relative z-10">
-      <h2 className="text-3xl font-bold text-center text-black mb-[10px] hover:text-[#B5C18E] transition-colors duration-300 cursor-pointer">
+      <h2 className="text-3xl font-bold text-center text-black  mb-[32px] hover:text-[#B5C18E] transition-colors duration-300 cursor-pointer">
         Découvre nos catégories les plus populaires
       </h2>
 

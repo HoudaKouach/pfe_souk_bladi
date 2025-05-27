@@ -104,20 +104,20 @@ const Footer = () => {
           <div className="space-y-4">
             <h3 className="text-xl font-bold">Modes de paiement</h3>
             <div className="flex space-x-4 items-center">
-              <img src="visa.png" alt="Visa" title="Visa" className="w-12 h-auto hover:opacity-80 transition duration-200" />
-              <img src="mastercard.png" alt="Mastercard" title="Mastercard" className="w-12 h-auto hover:opacity-80 transition duration-200" />
-              <img src="maestro.png" alt="Maestro" title="Maestro" className="w-12 h-auto hover:opacity-80 transition duration-200" />
-              <img src="cash-on-delivery (2).png" alt="Cash on Delivery" title="Cash on Delivery" className="w-auto h-10 hover:opacity-80 transition duration-200" />
+              <img src="/visa.png" alt="Visa" title="Visa" className="w-12 h-auto hover:opacity-80 transition duration-200" />
+              <img src="/mastercard.png" alt="Mastercard" title="Mastercard" className="w-12 h-auto hover:opacity-80 transition duration-200" />
+              <img src="/maestro.png" alt="Maestro" title="Maestro" className="w-12 h-auto hover:opacity-80 transition duration-200" />
+              <img src="/cash-on-delivery (2).png" alt="Cash on Delivery" title="Cash on Delivery" className="w-auto h-10 hover:opacity-80 transition duration-200" />
             </div>
           </div>
 
           <div className="space-y-4">
             <h3 className="text-xl font-bold">Nos engagements</h3>
             <div className="grid grid-cols-2 gap-6 text-center">
-              <Engagement imageSrc="authentique.png" text="Produits 100% authentiques" />
-              <Engagement imageSrc="livraison.png" text="Livraison partout au Maroc" />
-              <Engagement imageSrc="remboursement.png" text="Satisfait ou remboursé" />
-              <Engagement imageSrc="national.png" text="Offre nationale" />
+              <Engagement imageSrc="/authentique.png" text="Produits 100% authentiques" />
+              <Engagement imageSrc="/livraison.png" text="Livraison partout au Maroc" />
+              <Engagement imageSrc="/remboursement.png" text="Satisfait ou remboursé" />
+              <Engagement imageSrc="/national.png" text="Offre nationale" />
             </div>
           </div>
         </div>

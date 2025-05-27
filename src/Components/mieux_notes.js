@@ -130,7 +130,7 @@ const MieuxNotes = () => {
 
   return (
     <div className="py-[64px] bg-white">
-      <div className="container mx-auto px-4 max-w-7xl">
+      <div className="container mx-auto  max-w-7xl">
         <div className="text-center mb-[32px]">
           <h2 className="text-3xl font-bold text-center text-black  hover:text-[#B5C18E] transition-colors duration-300 cursor-pointer">
             Mieux notés

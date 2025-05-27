@@ -36,7 +36,7 @@ const PlusVendus = () => {
     <div className="absolute inset-0 bg-[#F7DCB9] opacity-5 z-0"></div>
         <div className="container mx-auto px-4 max-w-7xl">
         <div className="text-center">
-          <h2 className="text-3xl font-bold text-center text-black mb-[10px] hover:text-[#B5C18E] transition-colors duration-300 cursor-pointer">
+          <h2 className="text-3xl font-bold text-center text-black mb-[32px] hover:text-[#B5C18E] transition-colors duration-300 cursor-pointer">
             Plus vendus
           </h2>
         </div>

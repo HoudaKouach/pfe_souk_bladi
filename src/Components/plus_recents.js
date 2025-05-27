@@ -135,7 +135,7 @@ const PlusRecents = () => {
   };
 
   return (
-    <div className="relative py-12 bg-white">
+    <div className="relative py-[64px] bg-white">
       <div
         className="absolute inset-0"
         style={{
@@ -146,9 +146,9 @@ const PlusRecents = () => {
         }}
       ></div>
 
-      <div className="relative container mx-auto px-4 max-w-7xl">
+      <div className="relative container mx-auto  max-w-7xl">
         <div className="text-center ">
-          <h2 className="text-3xl font-bold text-black mb-[10px] hover:text-[#B5C18E] transition-colors duration-300 cursor-pointer">
+          <h2 className="text-3xl font-bold text-black mb-[32px] hover:text-[#B5C18E] transition-colors duration-300 cursor-pointer">
             Nouveautés
           </h2>
         </div>
