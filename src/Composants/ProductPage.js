@@ -4,7 +4,7 @@ import React, { useState } from 'react';
 // import { FiShoppingCart } from 'react-icons/fi';
 // import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import ProductGrid from './ProductGrid';
-import FilterSidebar from './FilterSidebar';
+import FilterSidebar from './FilterSidebar (1)';
 import Breadcrumb from './Breadcrumb';
 import Pagination from './Pagination';
 import Footer from '../Components/Footer';
@@ -56,7 +56,7 @@ function ProductPage() {
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row py-4 gap-6">
             {/* Sidebar */}
-            <div className="w-full md:w-1/4 lg:w-1/5 flex flex-col gap-4">
+            <div className="w-full md:w-1/4 lg:w-1/5 flex flex-col pr-0 gap-4">
               <FilterSidebar />
             </div>
 

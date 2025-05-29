@@ -6,7 +6,7 @@ import { AiOutlineHeart, AiFillHeart } from 'react-icons/ai';
 import { CartContext } from '../Panier/CartContext';
 import Footer from '../Components/Footer';
 import Pagination from '../categories/Pagination';
-import FilterSidebar from '../categories/FilterSidebar';
+import FilterSidebar from '../categories/FilterSidebar (1)';
 import AddToCartModal from '../Panier/AddToCartModal'; // Utilise bien ce nom
 
 

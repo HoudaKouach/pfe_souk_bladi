@@ -7,7 +7,10 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Georgia', 'Times New Roman', 'Times', 'serif'],
+        // Définir une police sans-serif personnalisée
+        // sans: ['Arial', 'Helvetica', 'sans-serif'],  
+        // Ou d'autres polices si tu veux
+        serif: ['Georgia', 'Times New Roman', 'serif'],
       },
     },
   },

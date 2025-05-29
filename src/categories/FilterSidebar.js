@@ -38,12 +38,12 @@ const FilterSidebar = () => {
     { name: 'Blanc/Bk', color: 'bg-white border border-gray-300' },
     { name: 'Jaune', color: 'bg-yellow-400' }
   ];
-  const marques = [
-  'Adidas', 'Nike', 'Zara', 'H&M', 'Pull&Bear', 'Stradivarius',
-  'Puma', 'Reebok', 'Bershka', 'Levi’s', 'New Balance', 'Guess',
-  'Lacoste', 'Tommy Hilfiger', 'Mango', 'Asics', 'Under Armour',
-  'Calvin Klein', 'Uniqlo', 'Diesel'
-];
+//   const marques = [
+//   'Adidas', 'Nike', 'Zara', 'H&M', 'Pull&Bear', 'Stradivarius',
+//   'Puma', 'Reebok', 'Bershka', 'Levi’s', 'New Balance', 'Guess',
+//   'Lacoste', 'Tommy Hilfiger', 'Mango', 'Asics', 'Under Armour',
+//   'Calvin Klein', 'Uniqlo', 'Diesel'
+// ];
 
 
   // const motifs = [
@@ -189,7 +189,7 @@ className="w-full bg-white py-2 px-4 mb-2 rounded-full text-center hover:bg-gray
 </div> */}
 
 
-<div className="w-full relative">
+{/* <div className="w-full relative">
   <button
     onClick={() => toggleFilterExpansion('Marque')}
 className="w-full bg-white py-2 px-4 mb-2 rounded-full text-center hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-green-500"
@@ -212,7 +212,7 @@ className="w-full bg-white py-2 px-4 mb-2 rounded-full text-center hover:bg-gray
       </div>
     </div>
   )}
-</div>
+</div> */}
 
 
       

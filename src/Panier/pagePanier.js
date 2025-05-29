@@ -652,7 +652,7 @@ const Panier = () => {
                 <p className="text-gray-600">Aucun produit dans le panier.</p>
               )}
             </div>
-            <CartSummary totalItems={totalItems} totalQuantite={totalQuantite} totalPrice={totalPrice} />
+            <CartSummary totalItems={totalItems} totalQuantite={totalQuantite} totalPrice={totalPrice} cartItems={cartItems} address={'123 Rue El Fath, Casablanca'} />
           </div>
         </section>
       </main>
